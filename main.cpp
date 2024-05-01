@@ -8,6 +8,8 @@
 #include <iostream>
 #include <queue>
 #include <unordered_map>
+#include "Producto.h"
+#include "Cliente.h"
 #include "Funciones.h"
 
 int main() {
@@ -19,7 +21,7 @@ int main() {
     cargarProductosDesdeArchivo("bodega.txt", bodega);
 
     // Loop principal del programa
-    while (/*condición de salida del programa*/) {
+    while (/*condición de salida del programa*/true) {
         // Mostrar menú de opciones al usuario y gestionar selección
         int opcion;
         std::cout << "----- Menú Principal -----" << std::endl;
@@ -47,3 +49,4 @@ int main() {
     }
 
     return 0;
+}

@@ -1,0 +1,14 @@
+Medicamentos
+Analgésicos
+5.99 101
+7.50 102
+Antibióticos
+12.75 103
+8.95 104
+Cuidado Personal
+Higiene Bucal
+3.25 105
+2.99 106
+Cuidado de la Piel
+6.50 107
+4.75 108
