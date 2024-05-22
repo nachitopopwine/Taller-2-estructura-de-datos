@@ -1,21 +1,27 @@
-#ifndef PRODUCTO_H
-#define PRODUCTO_H
+#pragma once
+#include <iostream>
 
-#include <string>
+using namespace std;
 
 class Producto {
 private:
-    std::string categoria;
-    std::string subcategoria;
-    float precio;
-    int id;
+    string id;
+    string nombre;
+    string categoria;
+    string subcategoria;
+    double precio;
 
 public:
-    Producto(std::string cat, std::string subcat, float precio, int id);
-    std::string getCategoria() const;
-    std::string getSubcategoria() const;
-    float getPrecio() const;
-    int getId() const;
+    Producto(string id, string nombre, string categoria, string subcategoria, double precio);
+    string getId();
+    string getNombre();
+    string getCategoria();
+    string getSubcategoria();
+    double getPrecio();
+    void setId(string id);
+    void setNombre(string nombre);
+    void setCategoria(string categoria);
+    void setSubcategoria(string subcategoria);
+    void setPrecio(double precio);
+    ~Producto();
 };
-
-#endif /* PRODUCTO_H */

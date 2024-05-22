@@ -1,15 +1,19 @@
-#ifndef CLIENTE_H
-#define CLIENTE_H
+#pragma once
+#include <iostream>
 
-#include <string>
+using namespace std;
 
 class Cliente {
-private:
-    std::string tipo;
+protected:
+    string nombre;
+    int edad;
 
 public:
-    Cliente(std::string tipo);
-    std::string getTipo() const;
+    Cliente(string nombre, int edad);
+    string getNombre();
+    int getEdad();
+    void setNombre(string nombre);
+    void setEdad(int edad);
+    virtual string getTipo() = 0;
+    virtual ~Cliente();
 };
-
-#endif /* CLIENTE_H */

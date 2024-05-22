@@ -6,11 +6,9 @@
 // y ahi ejecuta el codigo
 
 #include <iostream>
-#include <queue>
-#include <unordered_map>
 #include "Producto.h"
 #include "Cliente.h"
-#include "Funciones.h"
+
 
 using namespace std;
 
