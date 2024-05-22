@@ -12,15 +12,12 @@
 #include "Cliente.h"
 #include "Funciones.h"
 
+using namespace std;
+
 int main() {
-    // Inicialización de variables y estructuras de datos
-    std::unordered_map<std::string, std::vector<Producto>> bodega;
-    std::queue<Cliente> filaClientes;
+    
 
-    // Cargar productos desde archivo al inicio del programa
-    cargarProductosDesdeArchivo("bodega.txt", bodega);
-
-    // Loop principal del programa
+    
     while (/*condición de salida del programa*/true) {
         // Mostrar menú de opciones al usuario y gestionar selección
         int opcion;
@@ -33,14 +30,14 @@ int main() {
 
         switch (opcion) {
             case 1:
-                gestionarClientes();
+                
                 break;
             case 2:
-                gestionarVentas(bodega, filaClientes);
+                
                 break;
             case 3:
                 // Guardar productos en archivo al salir del programa
-                guardarProductosEnArchivo("bodega.txt", bodega);
+                
                 // Terminar el programa
                 return 0;
             default:
