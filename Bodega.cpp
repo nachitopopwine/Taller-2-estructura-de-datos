@@ -30,11 +30,11 @@ void Bodega::venderProducto(string id) {
 }
 
 void Bodega::cargarDatos() {
-    
+    cout << "cargar datos" << endl;
     
 }
 
 void Bodega::guardarDatos() {
-    
+    cout << "guardar datos" << endl;
     
 }
