@@ -1,24 +1,41 @@
 #include "Cliente.h"
 
-Cliente::Cliente(string nombre, int edad) {
-    this->nombre = nombre;
-    this->edad = edad;
-}
+Cliente::Cliente(string nombre, int edad)
+    : nombre(nombre), edad(edad), numeroAtencion(0), tipo("Normal") {}
 
 string Cliente::getNombre() {
-    return this->nombre;
+    return nombre;
 }
 
 int Cliente::getEdad() {
-    return this->edad;
+    return edad;
 }
 
-void Cliente::setNombre(string nombre) {
-    this->nombre = nombre;
+int Cliente::getNumeroAtencion() {
+    return numeroAtencion;
 }
 
-void Cliente::setEdad(int edad) {
-    this->edad = edad;
+string Cliente::getTipo() {
+    return tipo;
 }
 
-Cliente::~Cliente() {}
+void Cliente::setNumeroAtencion(int numero) {
+    numeroAtencion = numero;
+}
+
+ClienteNormal::ClienteNormal(string nombre, int edad)
+    : Cliente(nombre, edad) {}
+
+ClientePreferencial::ClientePreferencial(string nombre, int edad, string tipo)
+    : Cliente(nombre, edad) {
+    this->tipo = tipo;
+}
+
+ClienteTerceraEdad::ClienteTerceraEdad(string nombre, int edad)
+    : ClientePreferencial(nombre, edad, "TerceraEdad") {}
+
+ClienteDiscapacitado::ClienteDiscapacitado(string nombre, int edad)
+    : ClientePreferencial(nombre, edad, "Discapacitado") {}
+
+ClienteEmbarazada::ClienteEmbarazada(string nombre, int edad)
+    : ClientePreferencial(nombre, edad, "Embarazada") {}

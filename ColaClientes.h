@@ -1,21 +1,23 @@
 #pragma once
 #include <iostream>
-#include "NodoCliente.h"
 #include <queue>
+#include <string>
+#include "Cliente.h"
 
 using namespace std;
 
 class ColaClientes {
 private:
-    queue<NodoCliente*> colaTerceraEdad;
-    queue<NodoCliente*> colaDiscapacitado;
-    queue<NodoCliente*> colaEmbarazada;
-    queue<NodoCliente*> colaNormal;
+    queue<Cliente*> colaNormal;
+    queue<Cliente*> colaTerceraEdad;
+    queue<Cliente*> colaDiscapacitado;
+    queue<Cliente*> colaEmbarazada;
+    int numeroAtencion;
 
 public:
     ColaClientes();
     ~ColaClientes();
     void agregarCliente(Cliente* cliente);
     Cliente* llamarSiguienteCliente();
-    void mostrarClientes();
+    int getSiguienteNumero();
 };

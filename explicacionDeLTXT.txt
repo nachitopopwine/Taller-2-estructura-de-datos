@@ -1,0 +1,21 @@
+Categoría 1
+Subcategoría 1.1
+NombreProducto1 Precio1 ID1
+NombreProducto2 Precio2 ID2
+Subcategoría 1.2
+NombreProducto3 Precio3 ID3
+NombreProducto4 Precio4 ID4
+Categoría 2
+Subcategoría 2.1
+NombreProducto5 Precio5 ID5
+NombreProducto6 Precio6 ID6
+Subcategoría 2.2
+NombreProducto7 Precio7 ID7
+NombreProducto8 Precio8 ID8
+
+el txt viene con la forma primero es categoria, luego un subcategoria , luego sus productos
+pueden ser x cantidad de categorias , las subcategorias igual pueden ser x cantidad y los porductos igual pueden ser x cantidad
+por eso no hacer la lectura ni el guardado suponiendo cantidades ya que pueden ser con 
+un mínimo de 5 categorías, 2 sub-categorías por categoría y al menos 3 
+tipos de producto por sub-categoría. Pero es un minimo osea pueden ser mas 
+

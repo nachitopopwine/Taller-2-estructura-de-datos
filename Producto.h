@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -7,21 +8,15 @@ class Producto {
 private:
     string id;
     string nombre;
+    double precio;
     string categoria;
     string subcategoria;
-    double precio;
 
 public:
-    Producto(string id, string nombre, string categoria, string subcategoria, double precio);
+    Producto(string id, string nombre, double precio, string categoria, string subcategoria);
     string getId();
     string getNombre();
+    double getPrecio();
     string getCategoria();
     string getSubcategoria();
-    double getPrecio();
-    void setId(string id);
-    void setNombre(string nombre);
-    void setCategoria(string categoria);
-    void setSubcategoria(string subcategoria);
-    void setPrecio(double precio);
-    ~Producto();
 };

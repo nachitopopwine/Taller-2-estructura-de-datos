@@ -4,5 +4,5 @@
 class Discapacitado : public Cliente {
 public:
     Discapacitado(string nombre, int edad);
-    string getTipo() override;
+    string getTipo() ;
 };

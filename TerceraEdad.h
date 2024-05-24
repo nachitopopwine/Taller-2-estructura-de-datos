@@ -4,5 +4,5 @@
 class TerceraEdad : public Cliente {
 public:
     TerceraEdad(string nombre, int edad);
-    string getTipo() override;
+    string getTipo() ;
 };

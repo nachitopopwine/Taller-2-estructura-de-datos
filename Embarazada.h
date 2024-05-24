@@ -4,5 +4,5 @@
 class Embarazada : public Cliente {
 public:
     Embarazada(string nombre, int edad);
-    string getTipo() override;
+    string getTipo() ;
 };

@@ -1,51 +1,24 @@
 #include "Producto.h"
 
-Producto::Producto(string id, string nombre, string categoria, string subcategoria, double precio) {
-    this->id = id;
-    this->nombre = nombre;
-    this->categoria = categoria;
-    this->subcategoria = subcategoria;
-    this->precio = precio;
-}
+Producto::Producto(string id, string nombre, double precio, string categoria, string subcategoria)
+    : id(id), nombre(nombre), precio(precio), categoria(categoria), subcategoria(subcategoria) {}
 
 string Producto::getId() {
-    return this->id;
+    return id;
 }
 
 string Producto::getNombre() {
-    return this->nombre;
-}
-
-string Producto::getCategoria() {
-    return this->categoria;
-}
-
-string Producto::getSubcategoria() {
-    return this->subcategoria;
+    return nombre;
 }
 
 double Producto::getPrecio() {
-    return this->precio;
+    return precio;
 }
 
-void Producto::setId(string id) {
-    this->id = id;
+string Producto::getCategoria() {
+    return categoria;
 }
 
-void Producto::setNombre(string nombre) {
-    this->nombre = nombre;
+string Producto::getSubcategoria() {
+    return subcategoria;
 }
-
-void Producto::setCategoria(string categoria) {
-    this->categoria = categoria;
-}
-
-void Producto::setSubcategoria(string subcategoria) {
-    this->subcategoria = subcategoria;
-}
-
-void Producto::setPrecio(double precio) {
-    this->precio = precio;
-}
-
-Producto::~Producto() {}
