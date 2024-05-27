@@ -1,6 +1,6 @@
 #include "Producto.h"
 
-Producto::Producto(string id, string nombre, double precio, string categoria, string subcategoria)
+Producto::Producto(string id, string nombre, string precio, string categoria, string subcategoria)
     : id(id), nombre(nombre), precio(precio), categoria(categoria), subcategoria(subcategoria) {}
 
 string Producto::getId() const {
@@ -11,7 +11,7 @@ string Producto::getNombre() const{
     return this-> nombre;
 }
 
-double Producto::getPrecio() const{
+string Producto::getPrecio() const{
     return this->precio;
 }
 

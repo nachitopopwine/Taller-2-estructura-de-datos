@@ -1,7 +1,7 @@
 #include <iostream>
 #include "ColaClientes.h"
 #include "Producto.h"
-#include "Hashmap.cpp"
+#include "HashMap.h"
 
 using namespace std;
 
@@ -131,7 +131,7 @@ void gestionarBodega() {
             case 1: {
                 string categoria, subcategoria, nombre;
                 string id;
-                double precio;
+                string precio;
 
                 cout << "Ingrese la categoría del producto: ";
                 cin >> categoria;

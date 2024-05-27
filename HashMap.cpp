@@ -2,24 +2,8 @@
 #include <iostream>
 #include <string>
 #include "NodoProducto.h"
+#include "HashMap.h"
 
-const int TABLE_SIZE = 10;
-
-class HashMap {
-public:
-    HashMap();
-    ~HashMap();
-    void insert(const Producto& producto);
-    void display() const;
-    void saveToFile(const std::string& filename) const;
-    const Producto *HashMap::buscarPorId(const std::string &id) const;
-    void HashMap::eliminarPorId(const std::string &id);
-    void HashMap::cargarDesdeArchivo(const std::string &filename);
-
-private:
-    NodoProducto* table[TABLE_SIZE];
-    int hashFunction(const std::string& key) const;
-};
 
 HashMap::HashMap() {
     for (int i = 0; i < TABLE_SIZE; ++i) {
@@ -46,6 +30,7 @@ int HashMap::hashFunction(const std::string& key) const {
     }
     return hash;
 }
+
 const Producto* HashMap::buscarPorId(const std::string& id) const {
     int hash = hashFunction(id);
     NodoProducto* entry = table[hash];
@@ -55,8 +40,9 @@ const Producto* HashMap::buscarPorId(const std::string& id) const {
         }
         entry = entry->siguiente;
     }
-    return nullptr; // Si no se encuentra el producto con el ID especificado
+    return nullptr; 
 }
+
 void HashMap::eliminarPorId(const std::string& id) {
     int hash = hashFunction(id);
     NodoProducto* entry = table[hash];
@@ -64,7 +50,7 @@ void HashMap::eliminarPorId(const std::string& id) {
 
     while (entry != nullptr) {
         if (entry->producto.getId() == id) {
-            // Si el nodo a eliminar es el primero en la lista
+            
             if (prev == nullptr) {
                 table[hash] = entry->siguiente;
             } else {
@@ -80,6 +66,7 @@ void HashMap::eliminarPorId(const std::string& id) {
 
     std::cout << "No se encontró ningún producto con el ID " << id << "." << std::endl;
 }
+
 void HashMap::insert(const Producto& producto) {
     int hash = hashFunction(producto.getId());
     NodoProducto* newNode = new NodoProducto(producto);
@@ -107,6 +94,7 @@ void HashMap::display() const {
         }
     }
 }
+
 void HashMap::cargarDesdeArchivo(const std::string& filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
@@ -120,7 +108,6 @@ void HashMap::cargarDesdeArchivo(const std::string& filename) {
     while (getline(file, linea)) {
         if (linea.empty()) continue;
 
-        
         if (linea.back() == ':') {
             if (linea.find("Categoria:") != std::string::npos) {
                 categoria = linea.substr(0, linea.size() - 1);
@@ -128,8 +115,9 @@ void HashMap::cargarDesdeArchivo(const std::string& filename) {
                 subcategoria = linea.substr(0, linea.size() - 1);
             }
         } else {
-            std::string nombre, id;
-            double precio;
+            std::string nombre;
+            std::string id;
+            std::string precio; // Cambio a string
 
             size_t first_comma = linea.find(',');
             size_t second_comma = linea.find(',', first_comma + 1);
@@ -137,32 +125,25 @@ void HashMap::cargarDesdeArchivo(const std::string& filename) {
 
             nombre = linea.substr(0, first_comma);
             id = linea.substr(first_comma + 1, second_comma - first_comma - 1);
-            precio = std::stod(linea.substr(second_comma + 1, third_comma - second_comma - 1));
+            precio = linea.substr(second_comma + 1, third_comma - second_comma - 1); // Se guarda como cadena
 
             Producto producto(id, nombre, precio, categoria, subcategoria);
             insert(producto);
         }
     }
-
     file.close();
 }
-
 void HashMap::saveToFile(const std::string& filename) const {
     std::ofstream file(filename);
-    if (!file) {
-        std::cerr << "Error opening file!" << std::endl;
+    if (!file.is_open()) {
+        std::cerr << "Error opening file: " << filename << std::endl;
         return;
     }
 
-    
     for (int i = 0; i < TABLE_SIZE; ++i) {
         NodoProducto* entry = table[i];
         while (entry != nullptr) {
-            file << entry->producto.getCategoria() << ": \n";
-            file << entry->producto.getSubcategoria() << ": \n";
-            file << entry->producto.getNombre() << "," 
-                 << entry->producto.getId() << "," 
-                 << entry->producto.getPrecio() << "\n";
+            file << entry->producto.getId() << "," << entry->producto.getNombre() << "," << entry->producto.getPrecio() << "," << entry->producto.getCategoria() << "," << entry->producto.getSubcategoria() << std::endl;
             entry = entry->siguiente;
         }
     }
