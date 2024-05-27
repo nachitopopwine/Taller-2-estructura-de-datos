@@ -83,6 +83,7 @@ void HashMap::insert(const Producto& producto) {
 }
 
 void HashMap::display() const {
+    
     for (int i = 0; i < TABLE_SIZE; ++i) {
         NodoProducto* entry = table[i];
         if (entry != nullptr) {
@@ -98,7 +99,7 @@ void HashMap::display() const {
 void HashMap::cargarDesdeArchivo(const std::string& filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
-        std::cerr << "Error opening file: " << filename << std::endl;
+        std::cerr << "erro abrir archivo: " << filename << std::endl;
         return;
     }
 
@@ -110,14 +111,14 @@ void HashMap::cargarDesdeArchivo(const std::string& filename) {
 
         if (linea.back() == ':') {
             if (linea.find("Categoria:") != std::string::npos) {
-                categoria = linea.substr(0, linea.size() - 1);
+                categoria = linea.substr(0, linea.size() - 1); 
             } else if (linea.find("Subcategoria:") != std::string::npos) {
-                subcategoria = linea.substr(0, linea.size() - 1);
+                subcategoria = linea.substr(0, linea.size() - 1); 
             }
         } else {
             std::string nombre;
             std::string id;
-            std::string precio; // Cambio a string
+            std::string precio; 
 
             size_t first_comma = linea.find(',');
             size_t second_comma = linea.find(',', first_comma + 1);
@@ -125,7 +126,9 @@ void HashMap::cargarDesdeArchivo(const std::string& filename) {
 
             nombre = linea.substr(0, first_comma);
             id = linea.substr(first_comma + 1, second_comma - first_comma - 1);
-            precio = linea.substr(second_comma + 1, third_comma - second_comma - 1); // Se guarda como cadena
+            precio = linea.substr(second_comma + 1, third_comma - second_comma - 1); 
+            
+            //cout << "dato :"  + nombre + "," + id + ","+ precio<< endl;
 
             Producto producto(id, nombre, precio, categoria, subcategoria);
             insert(producto);
@@ -136,7 +139,7 @@ void HashMap::cargarDesdeArchivo(const std::string& filename) {
 void HashMap::saveToFile(const std::string& filename) const {
     std::ofstream file(filename);
     if (!file.is_open()) {
-        std::cerr << "Error opening file: " << filename << std::endl;
+        std::cerr << "error abrir archivo: " << filename << std::endl;
         return;
     }
 

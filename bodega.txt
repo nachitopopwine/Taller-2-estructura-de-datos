@@ -1,0 +1,14 @@
+Medicamentos
+Analgésicos
+Paracetamol,5.99,101
+Ibuprofeno,7.50,102
+Antibióticos
+Amoxicilina,12.75,103
+Azitromicina,8.95,104
+Cuidado Personal
+Higiene Bucal
+Pasta Dental,3.25,105
+Enjuague Bucal,2.99,106
+Cuidado de la Piel
+Crema Hidratante,6.50,107
+Protector Solar,4.75,108

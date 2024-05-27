@@ -7,12 +7,11 @@ using namespace std;
 
 HashMap Hashmap;
 ColaClientes colaClientes;
-
+void cargarDatos();
 void mostrarMenu();
 void entregarNumero();
 void llamarCliente();
 void gestionarBodega();
-void cargarDatos();
 void guardarDatos();
 
 int main() {
@@ -152,7 +151,7 @@ void gestionarBodega() {
                 break;
             }
             case 2:
-                //FALTA HACER LA ENTREGA DE BOLETAS, "IDEA: ( CADA VENTAS SE GUARDE LA PERSONAS CON EL PRODUCTO EN ALGUNA LISTA O ALGO Y QUE ACA SOLO IMPRIMA TODO ESO )
+                //FALTA HACER LA ENTREGA DE BOLETAS, "IDEA: ( CADA VENTAS SE GUARDE LA PERSONAS CON EL PRODUCTO EN ALGUNA LISTA Y QUE ACA SOLO IMPRIMA TODO ESO )
                 break;
             case 3:
                 cout << "Volviendo al menú principal..." << endl;
@@ -164,6 +163,7 @@ void gestionarBodega() {
 }
 
 void cargarDatos() {
+   
     Hashmap.cargarDesdeArchivo("bodega.txt");
 }
 
