@@ -6,9 +6,9 @@ using namespace std;
 
 class NodoProducto {
 public:
-    Producto* producto;
+    Producto producto;
     NodoProducto* siguiente;
 
-    NodoProducto(Producto* producto);
+    NodoProducto(const Producto& producto);
     ~NodoProducto();
 };

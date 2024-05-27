@@ -1,12 +1,12 @@
 #include <iostream>
 #include "ColaClientes.h"
 #include "Producto.h"
-#include "Bodega.h"
+#include "hashmap.cpp"
 
 using namespace std;
 
+HashMap Hashmap;
 ColaClientes colaClientes;
-Bodega bodega;
 
 void mostrarMenu();
 void entregarNumero();
@@ -95,7 +95,10 @@ void llamarCliente() {
     cout << "Ingrese el ID del producto solicitado: ";
     cin >> productoID;
 
-    Producto* producto = bodega.buscarProducto(productoID);
+//buscar producto 
+    const Producto* producto = Hashmap.buscarPorId(productoID);
+
+
     if (producto != nullptr) {
         cout << "Producto encontrado: " << producto->getNombre() << " - " << producto->getPrecio() << " $" << endl;
         cout << "¿Desea realizar la compra? (si/no): ";
@@ -103,7 +106,7 @@ void llamarCliente() {
         cin >> respuesta;
 
         if (respuesta == "si") {
-            bodega.venderProducto(productoID);
+            Hashmap.eliminarPorId(productoID);
             cout << "Compra realizada con éxito." << endl;
             
         } else {
@@ -142,7 +145,9 @@ void gestionarBodega() {
                 cin >> precio;
 
                 Producto* nuevoProducto = new Producto(id, nombre, precio, categoria, subcategoria);
-                bodega.agregarProducto(nuevoProducto);
+                Hashmap.insert(*nuevoProducto);
+
+                
                 cout << "Producto agregado a la bodega con éxito." << endl;
                 break;
             }
@@ -159,13 +164,10 @@ void gestionarBodega() {
 }
 
 void cargarDatos() {
-    bodega.cargarDatos();
-    //FALTA HACER BODEGA.H Y BODEGA.CPP (LO QUE TIENE HECHO ES CHAMULLITO)
-    //NO SUPE SOLO INVENTE CON METODOS Y FUNCIONES , PERO SE HACE CON HASHMAP TENGO ENTENDIDO
+    Hashmap.cargarDesdeArchivo("bodega.txt");
 }
 
 void guardarDatos() {
-    bodega.guardarDatos();
-    //FALTA HACER BODEGA.H Y BODEGA.CPP (LO QUE TIENE HECHO ES CHAMULLITO)
-    //NO SUPE SOLO INVENTE CON METODOS Y FUNCIONES , PERO SE HACE CON HASHMAP TENGO ENTENDIDO
+    Hashmap.saveToFile("bodega.txt");
+    
 }

@@ -14,9 +14,9 @@ private:
 
 public:
     Producto(string id, string nombre, double precio, string categoria, string subcategoria);
-    string getId();
-    string getNombre();
-    double getPrecio();
-    string getCategoria();
-    string getSubcategoria();
+    string getId() const;
+    string getNombre()const;
+    double getPrecio()const;
+    string getCategoria()const;
+    string getSubcategoria()const;
 };
